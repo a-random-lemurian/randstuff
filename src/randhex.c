@@ -2,10 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 #include <getopt.h>
+#include <limits.h>
+#include <errno.h>
 
 static int help_flag;
 static int upper_flag;
 static int mixed_flag;
+static int ignore_int_limit;
 
 void
 PrintHelp (char **argv)
@@ -25,13 +28,15 @@ PrintHelp (char **argv)
 int
 main (int argc, char** argv)
 { int c;
-  int hexlen = 0;
+  const char* hexlen = 0;
+
   for (;;) {
     static struct option longopts[] = {
     {"length", required_argument, 0, 'l'},
     {"help",   no_argument, &help_flag, 1},
     {"upper",  no_argument, &upper_flag,1},
-    {"mixed",  no_argument, &mixed_flag,1}};
+    {"mixed",  no_argument, &mixed_flag,1},
+    {"ignoreintlimit", no_argument, &ignore_int_limit,1}};
 
     int optindex = 0;
     c = getopt_long (argc, argv, "hl:",
@@ -44,11 +49,12 @@ main (int argc, char** argv)
         help_flag = 1;
         break;
       case 'l':
-        hexlen = atoi(optarg);
+        hexlen = optarg;
         break;
     }}
 
   if(help_flag){PrintHelp(argv);return 0;};
+
 
   if(hexlen==0){
     printf("fatal: length of hex not specified\n"
@@ -70,5 +76,17 @@ main (int argc, char** argv)
   if(mixed_flag){len=22;};
   if(upper_flag){offset=6;};
 
-  for(int i = 0; i < hexlen; i++)
+  long num = strtol(hexlen, NULL, 10);
+  if(errno == ERANGE){
+    printf("fatal: -l argument exceeds signed long integer limit\n");
+    exit(1);
+  }
+  if (num > INT_MAX && !ignore_int_limit){
+    printf("fatal: -l argument exceeds signed 32-bit integer limit\n"
+           "ignore this with --ignoreintlimit");
+    exit(1);
+  }
+  int num_i = (int)num;
+
+  for(int i = 0; i < num_i; i++)
   {printf("%c",hex[offset+rand()%len]);}}
