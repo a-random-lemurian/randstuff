@@ -21,36 +21,34 @@ PrintHelp (char **argv)
 
 int
 main (int argc, char** argv)
-{
-  int c;
+{ int c;
   int hexlen = 0;
-
   for (;;) {
     static struct option longopts[] = {
     {"length", required_argument, 0, 'l'},
     {"help",   no_argument, &help_flag, 1}};
+
     int optindex = 0;
     c = getopt_long (argc, argv, "hl:",
                      longopts, &optindex);
+
     if(c==-1){break;}
-    switch(c)
-    {
+
+    switch(c){
       case 'h':
         help_flag = 1;
         break;
       case 'l':
         hexlen = atoi(optarg);
         break;
-    }
-  }
+    }}
 
   if(help_flag){PrintHelp(argv);return 0;};
 
   if(hexlen==0){
     printf("fatal: length of hex not specified\n"
            "try: %s -l 40",argv[0]);
-    exit (1);
-  }
+    exit (1);}
 
   srand(clock());
 
@@ -61,7 +59,4 @@ main (int argc, char** argv)
      '6', '7', '8', '9'};
 
   for(int i = 0; i < hexlen; i++)
-  {
-    printf("%c",hex[rand()%16]);
-  }
-}
+  {printf("%c",hex[rand()%16]);}}
