@@ -2,6 +2,7 @@ bin
 build
 dist
 
+.*
 *.o
 *.out
 *.app
@@ -9,3 +10,5 @@ dist
 
 .vscode
 .metadata
+
+!.gitignore
