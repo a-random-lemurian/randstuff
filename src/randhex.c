@@ -17,7 +17,7 @@ PrintHelp (char **argv)
     "-l, --length   Length of hexadecimal\n"
     "               numbers to print\n"
   ,*argv[0]);
-};
+}
 
 int
 main (int argc, char** argv)
