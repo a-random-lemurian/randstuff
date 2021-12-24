@@ -62,30 +62,13 @@ main (int argc, char** argv)
     exit (1);
   }
 
-  int lenhex = 16;
+  int offset = 0;
+  int len = 16;
 
-  char hex[24] = 
-    {'a', 'b', 'c', 'd',
-     'e', 'f' ,'0', '1',
-     '2', '3', '4', '5',
-     '6', '7', '8', '9'};
-  
-  if(upper_flag){
-    hex[0] = 'A';
-    hex[1] = 'B';
-    hex[2] = 'C';
-    hex[3] = 'D';
-    hex[4] = 'E';
-    hex[5] = 'F';}
+  char hex[22] = "abcdef0123456789ABCDEF";
 
-  if(mixed_flag){
-    hex[16] = 'A';
-    hex[17] = 'B';
-    hex[18] = 'C';
-    hex[19] = 'D';
-    hex[20] = 'E';
-    hex[21] = 'F';
-    lenhex = 22;}
+  if(mixed_flag){len=22;};
+  if(upper_flag){offset=6;};
 
   for(int i = 0; i < hexlen; i++)
-  {printf("%c",hex[rand()%lenhex]);}}
+  {printf("%c",hex[offset+rand()%len]);}}
