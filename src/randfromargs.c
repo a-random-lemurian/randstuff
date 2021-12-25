@@ -40,7 +40,7 @@ PrintHelp (char** argv)
     "options:\n"
     "-h, --help                Print this message and exit\n"
     "-a, --array               Array (can be a string, does not support {})\n"
-    "-l, --length              Length of characters to print"
+    "-l, --length              Length of characters to print\n"
     ,argv[0]);
 }
 
@@ -79,4 +79,5 @@ main (int argc, char** argv)
 
     int samplesize_i = CheckOverflow_cchar(ignore_int_limit, samplesize, 10, 1);
     RandomArray_char(strlen(array), 0, samplesize_i, array);
+    puts("\n");
 }

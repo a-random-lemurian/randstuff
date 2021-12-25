@@ -41,7 +41,7 @@ PrintHelp (char **argv)
       "-h, --help      Print help and exit\n"
       "-l, --length    Length of ASCII string to print\n"
       "--alphanumeric  Use alphanumeric characters;\n"
-      "                no punctuation"
+      "                no punctuation\n"
     ,*argv[0]);
 }
 
@@ -97,4 +97,5 @@ main (int argc, char** argv)
         return 0;
     }
 
-    RandomArray_char(len, offset, num_i, printableAscii);}
+    RandomArray_char(len, offset, num_i, printableAscii);
+    puts ("\n");}
