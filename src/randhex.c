@@ -4,6 +4,7 @@
 #include <getopt.h>
 #include <limits.h>
 #include <errno.h>
+#include "randarray.h"
 
 static int help_flag;
 static int upper_flag;
@@ -88,5 +89,4 @@ main (int argc, char** argv)
   }
   int num_i = (int)num;
 
-  for(int i = 0; i < num_i; i++)
-  {printf("%c",hex[offset+rand()%len]);}}
+  RandomArray_char(len, offset, num_i, hex);}
