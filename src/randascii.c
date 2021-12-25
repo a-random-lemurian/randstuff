@@ -42,7 +42,7 @@ PrintHelp (char **argv)
       "-l, --length    Length of ASCII string to print\n"
       "--alphanumeric  Use alphanumeric characters;\n"
       "                no punctuation"
-    ,*argv[0])
+    ,*argv[0]);
 }
 
 int
