@@ -3,3 +3,4 @@ main:
 	mkdir -p "bin" "build"
 	gcc "./src/randascii.c" -o "./bin/randascii" ${COMPILE_FLAGS}
 	gcc "./src/randhex.c" -o "./bin/randhex" ${COMPILE_FLAGS}
+	gcc "./src/randfromargs.c" -o "./bin/randfromargs" ${COMPILE_FLAGS}
