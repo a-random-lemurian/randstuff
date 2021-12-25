@@ -1,12 +1,14 @@
 bin
 build
 dist
+log
 
 .*
 *.o
 *.out
 *.app
 *.exe
+*.log
 
 .vscode
 .metadata
