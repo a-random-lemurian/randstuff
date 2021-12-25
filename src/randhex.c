@@ -24,6 +24,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <limits.h>
 #include <errno.h>
 #include "randarray.h"
+#include "checkoverflow.h"
 
 static int help_flag;
 static int upper_flag;
@@ -96,16 +97,6 @@ main (int argc, char** argv)
   if(mixed_flag){len=22;};
   if(upper_flag){offset=6;};
 
-  long num = strtol(hexlen, NULL, 10);
-  if(errno == ERANGE){
-    printf("fatal: -l argument exceeds signed long integer limit\n");
-    exit(1);
-  }
-  if (num > INT_MAX && !ignore_int_limit){
-    printf("fatal: -l argument exceeds signed 32-bit integer limit\n"
-           "ignore this with --ignoreintlimit");
-    exit(1);
-  }
-  int num_i = (int)num;
+  int num_i = CheckOverflow_cchar(ignore_int_limit, hexlen, 10, 1);
 
   RandomArray_char(len, offset, num_i, hex);}
