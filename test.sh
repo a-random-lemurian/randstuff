@@ -1,5 +1,6 @@
 #! /usr/bin/bash
 TESTOUTPUT="./log/Test-All-$(date --iso-8601=ns).log"
+mkdir -p log
 echo "===================================< BEGIN TEST... $(date --iso-8601=ns)"
 
 echo "----------> Begin test of randhex...               $(date --iso-8601=ns)"
@@ -25,3 +26,5 @@ echo "----------> End test of randfromargs...            $(date --iso-8601=ns)"
 echo "===================================< END TEST...   $(date --iso-8601=ns)"
 # For GitHub actions
 cat $TESTOUTPUT
+
+rm -rf log
