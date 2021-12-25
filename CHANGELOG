@@ -1,0 +1,6 @@
+#< This project abides by the 
+   Semantic Versioning spec >#
+-------------------------------------------------
+=< 0.1.0 >=======================================
+
+- Added randhex.c for generation of random hexadecimal characters
