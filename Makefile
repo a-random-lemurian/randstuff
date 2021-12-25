@@ -1,4 +1,4 @@
-COMPILE_FLAGS=-O3 -Wpedantic -Wall -Werror -fstack-protector
+COMPILE_FLAGS=-std=c17 -O3 -Wpedantic -Wall -Werror -fstack-protector -v -save-temps
 main:
 	mkdir -p "bin" "build"
 	gcc "./src/randascii.c" -o "./bin/randascii" ${COMPILE_FLAGS}
