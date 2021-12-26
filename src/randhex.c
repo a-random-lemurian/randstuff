@@ -108,4 +108,4 @@ int main(int argc, char **argv) {
 	int num_i = CheckOverflow_cchar(ignore_int_limit, hexlen, 10, 1);
 
 	RandomArray_char(len, offset, num_i, hex);
-	puts("\n");}
+}

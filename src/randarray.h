@@ -26,4 +26,5 @@ inline extern void RandomArray_char(int arraySize, int offset, int samplesize,
 	for (int i = 0; i < samplesize; i++) {
 		printf("%c", chararray[offset + rand() % arraySize]);
 	}
+	puts ("\n");
 }

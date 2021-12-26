@@ -94,5 +94,6 @@ int main(int argc, char **argv)
 	}
 
   RandomArray_char(len, offset, num_i, printableAscii);
-  puts ("\n");}
+
+}
 
