@@ -63,7 +63,8 @@ main (int argc, char** argv)
     c = getopt_long (argc, argv, "hl:",
                      longopts, &optindex);
 
-    if(c==-1){break;}
+    if(c==-1)
+    {break;}
 
     switch(c){
       case 'h':
@@ -77,10 +78,11 @@ main (int argc, char** argv)
   if(help_flag){PrintHelp(argv);return 0;};
 
 
-  if(hexlen==0){
+  if(hexlen==0) {
     printf("fatal: length of hex not specified\n"
            "try: %s -l 40",argv[0]);
-    exit (1);}
+    exit (1);
+  }
 
   srand(clock());
 
