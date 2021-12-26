@@ -8,15 +8,19 @@ This project abides by C17 (-std=c17 is one of the compiler
 flags used).
 
 ===< Compile >===================================
-At the moment, this project is source-only, meaning that you must
-compile the tools yourself. Simply type 'make' in your terminal,
-in the root project directory. Check the bin folder, and then cp
-those files to a directory on your $PATH.
+At the moment, this project is mostly source-only, meaning that
+you must compile the tools yourself. Simply type 'make' in your
+terminal, in the root project directory. Check the bin folder,
+and then cp those files to a directory on your $PATH.
 
 Path                   Root user required
 /usr/local/bin         yes
 ~/.local/bin           no
 
+Precompiled, ready to run binaries are available for Linux, in
+the form of GitHub actions artifacts.
+
+https://github.com/a-random-lemurian/randstuff/actions/workflows/makefile.yml
 ===< OS Support >=================================
 Linux
   - Ubuntu 20.04       YES
