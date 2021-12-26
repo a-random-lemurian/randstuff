@@ -14,3 +14,4 @@ log
 .metadata
 
 !.gitignore
+!.github
