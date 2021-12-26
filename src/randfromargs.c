@@ -17,67 +17,63 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 */
 
-#include <stdio.h>
 #include <getopt.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "randarray.h"
 #include "checkoverflow.h"
+#include "randarray.h"
 
+static int help_flag, ignore_int_limit;
 
-static int help_flag,
-       ignore_int_limit;
+void PrintHelp(char **argv) {
+	printf(
+		"Usage: %s [OPTIONS] -a [ARRAY] -l [LENGTH]\n\n"
 
-
-void
-PrintHelp (char** argv)
-{
-  printf(
-  "Usage: %s [OPTIONS] -a [ARRAY] -l [LENGTH]\n\n"
-
-  "specify your own strings to choose from randomly\n"
-  "options:\n"
-  "-h, --help                Print this message and exit\n"
-  "-a, --array               Array (can be a string, does not support {})\n"
-  "-l, --length              Length of characters to print\n"
-  ,argv[0]);
+		"specify your own strings to choose from randomly\n"
+		"options:\n"
+		"-h, --help                Print this message and exit\n"
+		"-a, --array               Array (can be a string, does not support {})\n"
+		"-l, --length              Length of characters to print\n",
+		argv[0]);
 }
 
-int
-main (int argc, char** argv)
-{
-  int c;
-  char* samplesize = "0";
-  char* array = "  ";
-  for (;;)
-  {
-    static struct option longopts[] = {
-    {"length", required_argument, 0, 'l'},
-    {"help",   no_argument, &help_flag, 1},
-    {"ignoreintlimit", no_argument, &ignore_int_limit, 1},
-    {"array", required_argument, NULL,  'a'},};
+int main(int argc, char **argv) {
+	int c;
+	char *samplesize = "0";
+	char *array = "  ";
+	for (;;) {
+		static struct option longopts[] = {
+			{"length", required_argument, 0, 'l'},
+			{"help", no_argument, &help_flag, 1},
+			{"ignoreintlimit", no_argument, &ignore_int_limit, 1},
+			{"array", required_argument, NULL, 'a'},
+		};
 
-    int optindex = 0;
-    c = getopt_long(argc, argv, "hl:a:",
-            longopts, &optindex);
+		int optindex = 0;
+		c = getopt_long(argc, argv, "hl:a:", longopts, &optindex);
 
-    if(c==-1){break;};
+		if (c == -1) {
+			break;
+		};
 
-    switch(c){
-      case 'h':
-        PrintHelp(argv);
-        exit (1);
+		switch (c) {
+		case 'h':
+			PrintHelp(argv);
+			exit(1);
+		case 'a':
+			array = optarg;
+			break;
+		case 'l':
+			samplesize = optarg;
+			break;
+		}
+	}
 
-      case 'a':
-        array = optarg;break;
+	int samplesize_i = CheckOverflow_cchar(ignore_int_limit, samplesize, 10, 1);
 
-      case 'l':
-        samplesize = optarg;break;
-    }
-  }
-
-  int samplesize_i = CheckOverflow_cchar(ignore_int_limit, samplesize, 10, 1);
-  RandomArray_char(strlen(array), 0, samplesize_i, array);
-  puts("\n");
+	RandomArray_char(strlen(array), 0, samplesize_i, array);
+	
+	puts("\n");
 }
