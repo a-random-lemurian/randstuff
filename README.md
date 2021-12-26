@@ -22,23 +22,29 @@ the form of GitHub actions artifacts.
 
 https://github.com/a-random-lemurian/randstuff/actions/workflows/makefile.yml
 ===< OS Support >=================================
-Linux
+If it compiles on that operating system, it is
+supported.
+
+[ Linux ]=========================================
   - Ubuntu 20.04       YES
   - Debian 11          UNTESTED
   - Debian 10          UNTESTED
   - Arch Linux         YES
 
-macOS
+[ macOS ]=========================================
   - 11.4 "Big Sur"     UNTESTED
 
-Windows
+[ Windows ]=======================================
   - Windows 10         NO [ 1 ]
 
 [ 1 ] Default filename in ./src/randquote.c is `-`, which
       is the Unix identifier for STDIN.
 
 ===< Compiler Support >===========================
-GCC 9.3.0              YES
-GCC 11.1.0             YES
-Clang 13.0.0           YES
+Compiler               Compiles?         Command
+--------------------------------------------------
+GCC 9.3.0              YES               make
+GCC 11.1.0             YES               make
+Clang 10.0.0           YES               make -e CC=clang
+Clang 13.0.0           YES               make -e CC=clang
 ```
