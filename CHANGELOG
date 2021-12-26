@@ -1,6 +1,14 @@
 #< This project abides by the 
    Semantic Versioning spec >#
 -------------------------------------------------
+=< 0.2.0 >=======================================
+- Added randascii.c for generation of random ASCII characters
+- Added randfromargs.c for generation of random user-defined
+  characters (e.g for DNA, the user can specify "acgt").
+- Allow compiling with clang
+- Make README more verbose
+- Format code
+
 =< 0.1.0 >=======================================
 
 - Added randhex.c for generation of random hexadecimal characters
