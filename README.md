@@ -16,5 +16,26 @@ those files to a directory on your $PATH.
 Path                   Root user required
 /usr/local/bin         yes
 ~/.local/bin           no
-=================================================
+
+===< OS Support >=================================
+Linux
+  - Ubuntu 20.04       YES
+  - Debian 11          UNTESTED
+  - Debian 10          UNTESTED
+  - Arch Linux         UNTESTED
+
+macOS
+  - 11.4 "Big Sur"     UNTESTED
+
+Windows
+  - Windows 10         NO [ 1 ]
+
+[ 1 ] Default filename in ./src/randquote.c is `-`, which
+      is the Unix identifier for STDIN.
+
+===< Compiler Support >===========================
+GCC 9.3.0              YES
+Clang 10.0.0           NO (Maybe try changing a few flags)
+
+Conclusion: Please compile with GCC.
 ```
