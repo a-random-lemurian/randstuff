@@ -18,3 +18,13 @@ jobs:
     
     - name: "testing: check basic functionality (prevent segfault and exceptions)"
       run: sh ./test.sh
+      
+    - name: package
+      run: tar -czf randutils-continuous.tar.gz ./bin/
+    
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.3.1
+      with:
+        name: randutils-continuous.tar.gz
+        path: randutils-continuous.tar.gz
+    
