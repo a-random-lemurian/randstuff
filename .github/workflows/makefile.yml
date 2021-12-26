@@ -18,3 +18,12 @@ jobs:
     
     - name: "testing: check basic functionality (prevent segfault and exceptions)"
       run: sh ./test.sh
+
+    - name: Package artifact
+      run: tar -caf randutils-linux.tar.gz bin
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2.3.1
+      with:
+        name: randutils-linux.tar.gz
+        path: bin
