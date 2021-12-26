@@ -20,7 +20,7 @@ jobs:
       run: sh ./test.sh
       
     - name: package
-      run: tar -czf randutils-continuous.tar.gz ./bin/
+      run: tar -czf randutils-continuous.tar.gz bin
     
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.3.1
