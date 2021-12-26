@@ -56,7 +56,8 @@ int main(int argc, char **argv)
 			{"length", required_argument, 0, 'l'},
 			{"help", no_argument, &help_flag, 1},
 			{"ignoreintlimit", no_argument, &ignore_int_limit, 1},
-			{"alphanumeric", no_argument, &alphanumeric_flag, 1}};
+			{"alphanumeric", no_argument, &alphanumeric_flag, 1}
+		};
 
 		int optindex = 0;
 		c = getopt_long(argc, argv, "hl:", longopts, &optindex);

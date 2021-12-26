@@ -50,11 +50,12 @@ int main(int argc, char **argv) {
 
 	for (;;) {
 		static struct option longopts[] = {
-				{"length", required_argument, 0, 'l'},
-				{"help", no_argument, &help_flag, 1},
-				{"upper", no_argument, &upper_flag, 1},
-				{"mixed", no_argument, &mixed_flag, 1},
-				{"ignoreintlimit", no_argument, &ignore_int_limit, 1}};
+			{"length", required_argument, 0, 'l'},
+			{"help", no_argument, &help_flag, 1},
+			{"upper", no_argument, &upper_flag, 1},
+			{"mixed", no_argument, &mixed_flag, 1},
+			{"ignoreintlimit", no_argument, &ignore_int_limit, 1}
+		};
 
 		int optindex = 0;
 		c = getopt_long(argc, argv, "hl:", longopts, &optindex);
