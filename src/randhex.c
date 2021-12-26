@@ -100,6 +100,7 @@ int main(int argc, char **argv) {
 	if (mixed_flag) {
 		len = 22;
 	};
+ 
 	if (upper_flag) {
 		offset = 6;
 	};
@@ -107,5 +108,4 @@ int main(int argc, char **argv) {
 	int num_i = CheckOverflow_cchar(ignore_int_limit, hexlen, 10, 1);
 
 	RandomArray_char(len, offset, num_i, hex);
-	puts("\n");
-}
+	puts("\n");}

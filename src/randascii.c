@@ -93,6 +93,6 @@ int main(int argc, char **argv)
 		return 0;
 	}
 
-	RandomArray_char(len, offset, num_i, printableAscii);
-	puts("\n");
-}
+  RandomArray_char(len, offset, num_i, printableAscii);
+  puts ("\n");}
+

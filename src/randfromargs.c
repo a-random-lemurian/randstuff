@@ -39,6 +39,7 @@ void PrintHelp(char **argv) {
 		argv[0]);
 }
 
+
 int main(int argc, char **argv) {
 	int c;
 	char *samplesize = "0";
@@ -71,9 +72,7 @@ int main(int argc, char **argv) {
 		}
 	}
 
-	int samplesize_i = CheckOverflow_cchar(ignore_int_limit, samplesize, 10, 1);
-
-	RandomArray_char(strlen(array), 0, samplesize_i, array);
-	
-	puts("\n");
+  int samplesize_i = CheckOverflow_cchar(ignore_int_limit, samplesize, 10, 1);
+  RandomArray_char(strlen(array), 0, samplesize_i, array);
+  puts("\n");
 }

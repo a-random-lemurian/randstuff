@@ -16,6 +16,5 @@ inline extern int CheckOverflow_cchar(int ignore_int_limit, const char *samplesi
 		       "ignore this with --ignoreintlimit");
 		exit(errcode);
 	}
-
 	return (int)num;
 }
