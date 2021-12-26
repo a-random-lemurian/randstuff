@@ -22,7 +22,7 @@ Linux
   - Ubuntu 20.04       YES
   - Debian 11          UNTESTED
   - Debian 10          UNTESTED
-  - Arch Linux         UNTESTED
+  - Arch Linux         YES
 
 macOS
   - 11.4 "Big Sur"     UNTESTED
@@ -35,7 +35,6 @@ Windows
 
 ===< Compiler Support >===========================
 GCC 9.3.0              YES
-Clang 10.0.0           NO (Maybe try changing a few flags)
-
-Conclusion: Please compile with GCC.
+GCC 11.1.0             YES
+Clang 13.0.0           YES
 ```

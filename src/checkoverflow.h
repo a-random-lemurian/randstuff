@@ -23,3 +23,4 @@ CheckOverflow_cchar (int ignore_int_limit,
 
   return (int)num;
 }
+

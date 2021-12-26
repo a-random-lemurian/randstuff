@@ -81,3 +81,4 @@ main (int argc, char** argv)
   RandomArray_char(strlen(array), 0, samplesize_i, array);
   puts("\n");
 }
+
