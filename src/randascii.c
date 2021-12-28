@@ -17,6 +17,7 @@
  * 
  */
 
+#include "argcheck.h"
 #include "checkoverflow.h"
 #include "randarray.h"
 #include <errno.h>
@@ -44,6 +45,8 @@ void PrintHelp(char **argv) {
 
 int main(int argc, char **argv)
 {
+	CheckArguments(argc, argv);
+
 	const char *samplesize = 0;
 	int c;
 	int len = 94;

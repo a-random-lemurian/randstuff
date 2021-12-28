@@ -24,6 +24,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+#include "argcheck.h"
+
 static int help_flag;
 
 void PrintHelp(char** argv)
@@ -40,6 +42,9 @@ void PrintHelp(char** argv)
 
 int main (int argc, char** argv)
 {
+
+	CheckArguments(argc, argv);
+
 	int c;
 	char* filename = "-";
 

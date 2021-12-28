@@ -22,6 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "argcheck.h"
 #include "checkoverflow.h"
 #include "randarray.h"
 
@@ -41,6 +42,9 @@ void PrintHelp(char **argv) {
 
 
 int main(int argc, char **argv) {
+
+	CheckArguments(argc, argv);
+
 	int c;
 	char *samplesize = "0";
 	char *array = "  ";

@@ -19,6 +19,8 @@
 
 #include "checkoverflow.h"
 #include "randarray.h"
+#include "argcheck.h"
+
 #include <errno.h>
 #include <getopt.h>
 #include <limits.h>
@@ -45,6 +47,9 @@ void PrintHelp(char **argv) {
 }
 
 int main(int argc, char **argv) {
+
+	CheckArguments(argc, argv);
+
 	int c;
 	const char *hexlen = 0;
 
