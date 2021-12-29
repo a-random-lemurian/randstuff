@@ -17,10 +17,14 @@
  * 
  */
 
+#ifndef CHECKOVERFLOW_H
+#define CHECKOVERFLOW_H
+
 #include <errno.h>
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 inline extern int CheckOverflow_cchar(int ignore_int_limit, const char *samplesize, int numbase, int errcode)
 {
 	long num = strtol(samplesize, NULL, numbase);
@@ -37,3 +41,5 @@ inline extern int CheckOverflow_cchar(int ignore_int_limit, const char *samplesi
 	}
 	return (int)num;
 }
+
+#endif

@@ -17,6 +17,9 @@
  * 
  */
 
+#ifndef ARGCHECK_H_
+#define ARGCHECK_H_
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -28,3 +31,5 @@ inline extern void CheckArguments (int argc, char** argv)
 		exit(1);
 	}
 }
+
+#endif

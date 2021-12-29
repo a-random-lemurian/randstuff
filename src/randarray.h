@@ -17,6 +17,9 @@
  * 
  */
 
+#ifndef RANDARRAY_H
+#define RANDARRAY_H
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -28,3 +31,5 @@ inline extern void RandomArray_char(int arraySize, int offset, int samplesize,
 	}
 	puts ("\n");
 }
+
+#endif
