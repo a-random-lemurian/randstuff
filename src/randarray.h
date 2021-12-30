@@ -28,17 +28,20 @@ inline extern void RandomArray_char(int arraySize, int offset, int samplesize,
 {
 	/* Based on the samplesize, instead define strings of a set size
 	 * based on samplesize. Then flush these strings out of the buffer,
-	 * for faster printing.
-	 */
+	 * for faster printing. */
 
 	int blksiz = 10; // Block size, default is 10
 	int runoff = 0; // Runoff that doesn't fit in the blocks
 
 
-	if (samplesize > 10000)       blksiz = 1000;
-	if (samplesize > 100000)      blksiz = 5000;
-	if (samplesize > 1000000)    blksiz = 10000;
-	if (samplesize > 10000000)   blksiz = 100000;
+	if (samplesize > 10000)
+		blksiz = 1000;
+	if (samplesize > 100000)
+		blksiz = 5000;
+	if (samplesize > 1000000)
+		blksiz = 10000;
+	if (samplesize > 10000000)
+		blksiz = 100000;
 
 
 	while (samplesize % blksiz != 0)
@@ -49,32 +52,24 @@ inline extern void RandomArray_char(int arraySize, int offset, int samplesize,
 
 	int i;
 
-	for (i = 0; i < runoff; i++) {
+	for (i = 0; i < runoff; i++)
 		printf("%c", chararray[offset + rand() % arraySize]);
-	}
 
 	i = 0;
 
 	char blk[blksiz+1];
-
 	blk[blksiz] = '\0';
 
 	int idx;
 
 	for (int loops = 0; loops < samplesize; loops += blksiz)
 	{
-
-
 		for (idx = 0; idx < blksiz; idx++)
-		{
 			blk[idx] = chararray[offset+ rand() % arraySize];
-		}
 
 		idx = 0;
 		printf("%s", blk);
-
 	}
-
 
 	puts ("\n");
 }
