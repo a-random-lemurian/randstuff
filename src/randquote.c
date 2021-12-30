@@ -64,8 +64,8 @@ int main (int argc, char** argv)
 
 		switch (c) {
 		case 'h':
-			help_flag = 1;
-			break;
+			PrintHelp(argv);
+			exit(0);
 		case 'f':
 			filename = optarg;
 			break;
