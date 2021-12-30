@@ -77,7 +77,6 @@ inline extern void RandomArray_char(int arraySize, int offset, int samplesize,
 
 
 	puts ("\n");
-	printf("blksiz %d",blksiz);
 }
 
 #endif
