@@ -33,14 +33,15 @@ static int alphanumeric_flag;
 static int ignore_int_limit;
 
 void PrintHelp(char **argv) {
-	printf("Usage: %c [OPTIONS] -l [length]\n\n"
+	printf(
+	"Usage: %c [OPTIONS] -l [length]\n\n"
 
-				 "options:\n"
-				 "-h, --help      Print help and exit\n"
-				 "-l, --length    Length of ASCII string to print\n"
-				 "--alphanumeric  Use alphanumeric characters;\n"
-				 "                no punctuation\n",
-				 *argv[0]);
+	"options:\n"
+	"-h, --help      Print help and exit\n"
+	"-l, --length    Length of ASCII string to print\n"
+	"--alphanumeric  Use alphanumeric characters;\n"
+	"                no punctuation\n",
+	*argv[0]);
 }
 
 int main(int argc, char **argv)
@@ -48,13 +49,16 @@ int main(int argc, char **argv)
 	CheckArguments(argc, argv);
 
 	const char *samplesize = 0;
+
 	int c;
 	int len = 94;
 	int offset = 0;
+
 	char alphanumericAscii[66] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	char printableAscii[94] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~!@#$%%^&*()_+`{}:\"|<>?,./;\'\\[]\'";
 
-	for (;;) {
+	while (1)
+	{
 		static struct option longopts[] = {
 			{"length", required_argument, 0, 'l'},
 			{"help", no_argument, &help_flag, 1},
@@ -97,7 +101,5 @@ int main(int argc, char **argv)
 		return 0;
 	}
 
-  RandomArray_char(len, offset, num_i, printableAscii);
-
+	RandomArray_char(len, offset, num_i, printableAscii);
 }
-

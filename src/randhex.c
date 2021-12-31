@@ -53,7 +53,8 @@ int main(int argc, char **argv) {
 	int c;
 	const char *hexlen = 0;
 
-	for (;;) {
+	while (1)
+	{
 		static struct option longopts[] = {
 			{"length", required_argument, 0, 'l'},
 			{"help", no_argument, &help_flag, 1},

@@ -30,14 +30,14 @@ static int help_flag, ignore_int_limit;
 
 void PrintHelp(char **argv) {
 	printf(
-		"Usage: %s [OPTIONS] -a [ARRAY] -l [LENGTH]\n\n"
+	"Usage: %s [OPTIONS] -a [ARRAY] -l [LENGTH]\n\n"
 
-		"specify your own strings to choose from randomly\n"
-		"options:\n"
-		"-h, --help                Print this message and exit\n"
-		"-a, --array               Array (can be a string, does not support {})\n"
-		"-l, --length              Length of characters to print\n",
-		argv[0]);
+	"specify your own strings to choose from randomly\n"
+	"options:\n"
+	"-h, --help                Print this message and exit\n"
+	"-a, --array               Array (can be a string, does not support {})\n"
+	"-l, --length              Length of characters to print\n",
+	argv[0]);
 }
 
 
@@ -48,7 +48,9 @@ int main(int argc, char **argv) {
 	int c;
 	char *samplesize = "0";
 	char *array = "  ";
-	for (;;) {
+
+	while (1)
+	{
 		static struct option longopts[] = {
 			{"length", required_argument, 0, 'l'},
 			{"help", no_argument, &help_flag, 1},
