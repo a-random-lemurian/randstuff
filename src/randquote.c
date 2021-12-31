@@ -26,7 +26,7 @@
 
 #include "argcheck.h"
 
-static int help_flag;
+static int help_flag, high_mem_use;
 
 void PrintHelp(char** argv)
 {
@@ -34,8 +34,12 @@ void PrintHelp(char** argv)
 	"Usage: %s [OPTIONS] -f [FILE]\n\n"
 
 	"Options:\n"
-	"-h, --help       Print this message and exit\n"
-	"-f, --file       File to select random quote from\n"
+	"-h, --help          Print this message and exit\n"
+	"-f, --file          File to select random quote from\n\n"
+
+	"    --highmemuse    Allocate more memory (~1MB) for\n"
+	"                    print buffer (allows for faster\n"
+	"                    printing)"
 	,argv[0]);
 }
 
@@ -53,7 +57,8 @@ int main (int argc, char** argv)
 		static struct option longopts[] = {
 			//{"length", required_argument, 0, 'l'},
 			{"help", no_argument, &help_flag, 1},
-			{"file", required_argument, 0, 'f'}
+			{"highmemuse", no_argument, &high_mem_use, 1},
+			{"file", required_argument, 0, 'f'},
 		};
 
 		int optindex = 0;

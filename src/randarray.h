@@ -24,7 +24,7 @@
 #include <stdlib.h>
 
 inline extern void RandomArray_char(int arraySize, int offset, int samplesize,
-                                    char chararray[])
+                                    char chararray[], int high_mem_use)
 {
 	/* Based on the samplesize, instead define strings of a set size
 	 * based on samplesize. Then flush these strings out of the buffer,
@@ -42,6 +42,10 @@ inline extern void RandomArray_char(int arraySize, int offset, int samplesize,
 		blksiz = 10000;
 	if (samplesize > 10000000)
 		blksiz = 100000;
+	if (samplesize > 50000000 && high_mem_use)
+		blksiz = 200000;
+	if (samplesize > 100000000 && high_mem_use)
+		blksiz = 500000;
 
 
 	while (samplesize % blksiz != 0)

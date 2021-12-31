@@ -32,17 +32,21 @@ static int help_flag;
 static int upper_flag;
 static int mixed_flag;
 static int ignore_int_limit;
+static int high_mem_use;
 
 void PrintHelp(char **argv) {
 	printf(
 	"Usage: %c [OPTIONS]\n\n"
 
 	"options:\n"
-	"-h, --help     Print help and exit\n"
-	"-l, --length   Length of hexadecimal\n"
-	"               numbers to print\n"
-	"    --upper    Use uppercase hex letters\n"
-	"    --mixed    Use mixedcase hex letters\n",
+	"-h, --help           Print help and exit\n"
+	"-l, --length         Length of hexadecimal\n"
+	"                     Use uppercase hex letters\n"
+	"    --mixed          Use mixedcase hex letters\n\n"
+
+	"    --highmemuse     Allocate more memory (~1MB)\n"
+	"                     for print buffer (allows for\n"
+	"                     faster printing)",
 	*argv[0]);
 }
 
@@ -60,7 +64,8 @@ int main(int argc, char **argv) {
 			{"help", no_argument, &help_flag, 1},
 			{"upper", no_argument, &upper_flag, 1},
 			{"mixed", no_argument, &mixed_flag, 1},
-			{"ignoreintlimit", no_argument, &ignore_int_limit, 1}
+			{"ignoreintlimit", no_argument, &ignore_int_limit, 1},
+			{"highmemuse", no_argument, &high_mem_use, 1},
 		};
 
 		int optindex = 0;
@@ -114,5 +119,5 @@ int main(int argc, char **argv) {
 
 	int num_i = CheckOverflow_cchar(ignore_int_limit, hexlen, 10, 1);
 
-	RandomArray_char(len, offset, num_i, hex);
+	RandomArray_char(len, offset, num_i, hex, high_mem_use);
 }

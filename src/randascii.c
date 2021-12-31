@@ -31,6 +31,7 @@
 static int help_flag;
 static int alphanumeric_flag;
 static int ignore_int_limit;
+static int high_mem_use;
 
 void PrintHelp(char **argv) {
 	printf(
@@ -40,7 +41,10 @@ void PrintHelp(char **argv) {
 	"-h, --help      Print help and exit\n"
 	"-l, --length    Length of ASCII string to print\n"
 	"--alphanumeric  Use alphanumeric characters;\n"
-	"                no punctuation\n",
+	"                no punctuation\n"
+	"--highmemuse    Allocate more memory (~1MB)\n"
+	"                for print buffer (allows for\n"
+	"                faster printing)",
 	*argv[0]);
 }
 
@@ -63,7 +67,8 @@ int main(int argc, char **argv)
 			{"length", required_argument, 0, 'l'},
 			{"help", no_argument, &help_flag, 1},
 			{"ignoreintlimit", no_argument, &ignore_int_limit, 1},
-			{"alphanumeric", no_argument, &alphanumeric_flag, 1}
+			{"alphanumeric", no_argument, &alphanumeric_flag, 1},
+			{"highmemuse", no_argument, &high_mem_use, 1},
 		};
 
 		int optindex = 0;
@@ -97,9 +102,9 @@ int main(int argc, char **argv)
 	int num_i = CheckOverflow_cchar(ignore_int_limit, samplesize, 10, 1);
 
 	if (alphanumeric_flag) {
-		RandomArray_char(len, offset, num_i, alphanumericAscii);
+		RandomArray_char(len, offset, num_i, alphanumericAscii, high_mem_use);
 		return 0;
 	}
 
-	RandomArray_char(len, offset, num_i, printableAscii);
+	RandomArray_char(len, offset, num_i, printableAscii, high_mem_use);
 }
