@@ -1,6 +1,18 @@
 #< This project abides by the 
    Semantic Versioning spec >#
 -------------------------------------------------
+=< 0.3.0 >=======================================
+- Added randquote.c to print a random line from a file, such
+  as a file containing a list of quotes.
+- Added a shell (dash) script to install the binaries in the
+  bin/ directory of the project directory to ~/.local/bin.
+- RandomArray_cchar function now buffers printing based on
+  the requested ammount of random characters. It defines a
+  char array of a fixed size (blksiz internally), fills
+  that string with random characters and then supplies it
+  to the printf() function.
+- Format code
+
 =< 0.2.0 >=======================================
 - Added randascii.c for generation of random ASCII characters
 - Added randfromargs.c for generation of random user-defined
