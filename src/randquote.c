@@ -86,8 +86,6 @@ int main (int argc, char** argv)
 		exit(1);
 	}
 
-	srand(clock());
-
 	int lineno = 1;
 	char first[100], next[100];
 

@@ -22,10 +22,15 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include <math.h>
+#include "mtwister.h"
 
 inline extern void RandomArray_char(int arraySize, int offset, int samplesize,
                                     char chararray[], int high_mem_use)
 {
+	MTRand mtrng = seedRand(clock());
+
 	/* Based on the samplesize, instead define strings of a set size
 	 * based on samplesize. Then flush these strings out of the buffer,
 	 * for faster printing. */
@@ -57,7 +62,7 @@ inline extern void RandomArray_char(int arraySize, int offset, int samplesize,
 	int i;
 
 	for (i = 0; i < runoff; i++)
-		printf("%c", chararray[offset + rand() % arraySize]);
+		printf("%c", chararray[(int)floor(offset+genRand(&mtrng)*arraySize)]);
 
 	i = 0;
 
@@ -69,7 +74,7 @@ inline extern void RandomArray_char(int arraySize, int offset, int samplesize,
 	for (int loops = 0; loops < samplesize; loops += blksiz)
 	{
 		for (idx = 0; idx < blksiz; idx++)
-			blk[idx] = chararray[offset+ rand() % arraySize];
+			blk[idx] = chararray[(int)floor(offset+genRand(&mtrng)*arraySize)];
 
 		idx = 0;
 		printf("%s", blk);

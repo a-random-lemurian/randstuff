@@ -97,7 +97,6 @@ int main(int argc, char **argv) {
 		exit(1);
 	}
 
-	srand(clock());
 
 	if (mixed_flag && upper_flag) {
 		printf("fatal: --mixed and --upper are mutually exclusive\n");

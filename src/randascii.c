@@ -97,8 +97,6 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
-	srand(clock());
-
 	int num_i = CheckOverflow_cchar(ignore_int_limit, samplesize, 10, 1);
 
 	if (alphanumeric_flag) {
