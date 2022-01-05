@@ -33,13 +33,17 @@ static int help_flag, high_mem_use, filename_flag;
 void PrintHelp(char** argv)
 {
 	printf(
-	"Usage: %s [OPTIONS] -f [FILE]\n\n"
+	"Usage: %s [OPTIONS] [FILE]\n\n"
 
 	"Options:\n"
 	"-h, --help                Print this message and exit\n"
 	"-f, --file                File to select random quote from\n"
 	"    --highmemuse          Allocate more memory (~1MB) for print\n"
-	"                          buffer (allows for faster printing)"
+	"                          buffer (allows for faster printing)\n\n"
+
+	"The filename is a positional argument. The --file/-f flag is\n"
+	"optional. If a filename is specified both with the --file/-f\n"
+	"flag, the filename specified by the flag will take precedence.\n"
 	,argv[0]);
 }
 
