@@ -38,13 +38,11 @@ void PrintHelp(char **argv) {
 	"Usage: %c [OPTIONS] -l [length]\n\n"
 
 	"options:\n"
-	"-h, --help      Print help and exit\n"
-	"-l, --length    Length of ASCII string to print\n"
-	"--alphanumeric  Use alphanumeric characters;\n"
-	"                no punctuation\n"
-	"--highmemuse    Allocate more memory (~1MB)\n"
-	"                for print buffer (allows for\n"
-	"                faster printing)",
+	"-h, --help                Print help and exit\n"
+	"-l, --length              Length of ASCII string to print\n"
+	"--alphanumeric            Use alphanumeric characters, no punctuation\n"
+	"--highmemuse              Allocate more memory (~1MB) for print buffer\n"
+	"                          (allows for faster printing)",
 	*argv[0]);
 }
 

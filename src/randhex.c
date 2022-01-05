@@ -39,14 +39,12 @@ void PrintHelp(char **argv) {
 	"Usage: %c [OPTIONS]\n\n"
 
 	"options:\n"
-	"-h, --help           Print help and exit\n"
-	"-l, --length         Length of hexadecimal\n"
-	"    --upper          Use uppercase hex letters\n"
-	"    --mixed          Use mixedcase hex letters\n\n"
-
-	"    --highmemuse     Allocate more memory (~1MB)\n"
-	"                     for print buffer (allows for\n"
-	"                     faster printing)",
+	"-h, --help                Print help and exit\n"
+	"-l, --length              Length of hexadecimal\n"
+	"    --upper               Use uppercase hex letters\n"
+	"    --mixed               Use mixedcase hex letters\n"
+	"    --highmemuse          Allocate more memory (~1MB) for print\n"
+	"                          buffer (allows for faster printing)\n",
 	*argv[0]);
 }
 

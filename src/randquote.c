@@ -34,12 +34,10 @@ void PrintHelp(char** argv)
 	"Usage: %s [OPTIONS] -f [FILE]\n\n"
 
 	"Options:\n"
-	"-h, --help          Print this message and exit\n"
-	"-f, --file          File to select random quote from\n\n"
-
-	"    --highmemuse    Allocate more memory (~1MB) for\n"
-	"                    print buffer (allows for faster\n"
-	"                    printing)"
+	"-h, --help                Print this message and exit\n"
+	"-f, --file                File to select random quote from\n"
+	"    --highmemuse          Allocate more memory (~1MB) for print\n"
+	"                          buffer (allows for faster printing)"
 	,argv[0]);
 }
 
