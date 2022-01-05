@@ -28,7 +28,7 @@
 #include "mtwister.h"
 #include "argcheck.h"
 
-static int help_flag, high_mem_use;
+static int help_flag, high_mem_use, filename_flag;
 
 void PrintHelp(char** argv)
 {
@@ -51,7 +51,7 @@ int main (int argc, char** argv)
 	CheckArguments(argc, argv);
 
 	int c;
-	char* filename = "-";
+	char* filename = "";
 
 	while (1)
 	{
@@ -74,8 +74,19 @@ int main (int argc, char** argv)
 			PrintHelp(argv);
 			exit(0);
 		case 'f':
+			filename_flag = 1;
 			filename = optarg;
 			break;
+		}
+	}
+
+	int posarg = 0;
+
+	if (optind < argc) {
+		while (optind < argc) {
+			if (posarg == 0 && !filename_flag)
+				filename = argv[optind++];
+			posarg++;
 		}
 	}
 
