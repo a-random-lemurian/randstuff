@@ -41,7 +41,7 @@ void PrintHelp(char **argv) {
 	"options:\n"
 	"-h, --help           Print help and exit\n"
 	"-l, --length         Length of hexadecimal\n"
-	"                     Use uppercase hex letters\n"
+	"    --upper          Use uppercase hex letters\n"
 	"    --mixed          Use mixedcase hex letters\n\n"
 
 	"    --highmemuse     Allocate more memory (~1MB)\n"
