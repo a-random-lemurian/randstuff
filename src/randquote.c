@@ -84,6 +84,11 @@ int main (int argc, char** argv)
 		}
 	}
 
+	if (help_flag) {
+		PrintHelp(argv);
+		exit(0);
+	}
+
 	int posarg = 0;
 
 	if (optind < argc) {
