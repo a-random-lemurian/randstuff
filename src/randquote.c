@@ -23,7 +23,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
+#include "mtwister.h"
 #include "argcheck.h"
 
 static int help_flag, high_mem_use;
@@ -45,6 +47,7 @@ void PrintHelp(char** argv)
 int main (int argc, char** argv)
 {
 
+	MTRand mtrng = seedRand(clock());
 	CheckArguments(argc, argv);
 
 	int c;
@@ -91,7 +94,7 @@ int main (int argc, char** argv)
 	{
 		while (fgets(next, 100, fptr))
 		{
-			if (rand() % ++lineno == 0)
+			if ((int)floor(0+genRand(&mtrng)*++lineno) == 0)
 				strcpy(first, next);
 		}
 	}
