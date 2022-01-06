@@ -33,6 +33,7 @@ static int upper_flag;
 static int mixed_flag;
 static int ignore_int_limit;
 static int high_mem_use;
+static int hexlen_specified;
 
 void PrintHelp(char **argv) {
 	printf(
@@ -78,6 +79,7 @@ int main(int argc, char **argv) {
 			help_flag = 1;
 			break;
 		case 'l':
+			hexlen_specified = 1;
 			hexlen = optarg;
 			break;
 		}
@@ -87,6 +89,17 @@ int main(int argc, char **argv) {
 		PrintHelp(argv);
 		return 0;
 	};
+
+
+	int posarg = 0;
+
+	if (optind < argc) {
+		while (optind < argc) {
+			if (posarg == 0 && !hexlen_specified)
+				hexlen = argv[optind++];
+			posarg++;
+		}
+	}
 
 	if (hexlen == 0) {
 		printf("fatal: length of hex not specified\n"
