@@ -26,7 +26,7 @@
 #include "checkoverflow.h"
 #include "randarray.h"
 
-static int help_flag, ignore_int_limit, high_mem_use;
+static int help_flag, ignore_int_limit, high_mem_use, samplesize_specified, array_specified;
 
 void PrintHelp(char **argv) {
 	printf(
@@ -78,6 +78,18 @@ int main(int argc, char **argv) {
 		case 'l':
 			samplesize = optarg;
 			break;
+		}
+	}
+
+	int posarg = 0;
+
+	if (optind < argc) {
+		while (optind < argc) {
+			if (posarg == 0 && !array_specified)
+				array = argv[optind++];
+			if (posarg == 1 && !samplesize_specified)
+				samplesize = argv[optind++];
+			posarg++;
 		}
 	}
 
