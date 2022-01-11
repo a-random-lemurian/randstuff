@@ -28,6 +28,9 @@
 #include "mtwister.h"
 #include "argcheck.h"
 
+#define FIRST_SIZE 512
+#define NEXT_SIZE 512
+
 static int help_flag, high_mem_use, filename_flag;
 
 void PrintHelp(char** argv)
@@ -108,7 +111,7 @@ int main (int argc, char** argv)
 	}
 
 	int lineno = 1;
-	char first[100], next[100];
+	char first[FIRST_SIZE], next[NEXT_SIZE];
 
 	if (fgets(first, 100, fptr))
 	{
